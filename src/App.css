@@ -34,9 +34,18 @@
 }
 
 .card {
-  padding: 2em;
+  background-color: #fffcf4;
+  border: 1px solid grey;
+  border-radius: 2px;
+  box-shadow: 5px 5px 0px grey;
+  color: black;
+  font-size: 1.5em;
+  min-width: 460px;
+  padding: 1em 1.5em;
+  -webkit-box-shadow: 5px 5px 0px grey;
+  -moz-box-shadow: 5px 5px 0px grey;
 }
 
-.read-the-docs {
-  color: #888;
+#count {
+  margin-top: 5%;
 }
