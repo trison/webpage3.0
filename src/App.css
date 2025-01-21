@@ -39,11 +39,35 @@
   border-radius: 2px;
   box-shadow: 5px 5px 0px grey;
   color: black;
+  cursor: grab;
   font-size: 1.5em;
   min-width: 460px;
   padding: 1em 1.5em;
   -webkit-box-shadow: 5px 5px 0px grey;
   -moz-box-shadow: 5px 5px 0px grey;
+  z-index: 3;
+}
+
+.card-container {
+/*
+  width: var(--jeff-img-width);
+  height: var(--jeff-img-height);
+  margin: 0 auto;
+  margin-top: 6%;
+  */
+}
+
+.card-under {
+  /*
+  opacity: 0;
+  width: var(--jeff-img-width);
+  height: var(--jeff-img-height);
+  background-image: url("/img/jeff1.jpg");
+  border: 1px solid grey;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 2;
+  */
 }
 
 #count {
