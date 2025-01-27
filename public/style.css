@@ -1,0 +1,33 @@
+body {
+  background: linear-gradient(90deg, #fbeeee, white);
+  margin: 0;
+  display: flex;
+  font-family: Open Sans, sans-serif;
+  font-size: 20px;
+  min-width: 320px;
+  min-height: 100vh;
+  place-items: center;
+  text-align: center;
+}
+
+#card {
+  background-color: #fffcf4;
+  border: 1px solid grey;
+  border-radius: 2px;
+  box-shadow: 5px 5px 0px grey;
+  color: black;
+  cursor: grab;
+  font-size: 1.5em;
+  min-width: 460px;
+  padding: 1em 1.5em;
+  -webkit-box-shadow: 5px 5px 0px grey;
+  -moz-box-shadow: 5px 5px 0px grey;
+  z-index: 3;
+}
+
+#card-container {
+  left: 50%;
+  position: absolute;
+  top: 25%;
+  transform: translate(-50%, 0);
+}
