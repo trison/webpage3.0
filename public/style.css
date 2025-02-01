@@ -1,28 +1,41 @@
 body {
   background: linear-gradient(90deg, #fbeeee, white);
-  margin: 0;
   display: flex;
   font-family: Open Sans, sans-serif;
   font-size: 20px;
-  min-width: 320px;
+  margin: 0;
   min-height: 100vh;
+  min-width: 320px;
   place-items: center;
   text-align: center;
 }
 
+#card-under {
+  background-color: lightgray;
+  border-radius: 2px;
+  left: 50%;
+  min-height: 219.5px;
+  /* Match #card's dimensions. #card's size is not expected to be dyhnamic. */
+  min-width: 552px;
+  position: absolute;
+  top: 25%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+}
+
 #card {
   background-color: #fffcf4;
-  border: 1px solid grey;
   border-radius: 2px;
+  border: 1px solid grey;
   box-shadow: 5px 5px 0px grey;
   color: black;
   cursor: grab;
   font-size: 1.5em;
+  height: 5.25em;
   min-width: 460px;
   padding: 1em 1.5em;
   -webkit-box-shadow: 5px 5px 0px grey;
   -moz-box-shadow: 5px 5px 0px grey;
-  z-index: 3;
 }
 
 #card-container {
@@ -30,4 +43,5 @@ body {
   position: absolute;
   top: 25%;
   transform: translate(-50%, 0);
+  z-index: 2;
 }
