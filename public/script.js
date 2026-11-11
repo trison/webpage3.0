@@ -1,34 +1,42 @@
 function dragCard() {
-  let cardElement = document.getElementById("card-container");
-  let newX = 0, newY = 0, currX = 0, currY = 0;
+  const card = document.getElementById("card-container");
+  const SNAP_RADIUS_PX = 40;
 
-  cardElement.onmousedown = (e) => {
-    e = e || window.event;
+  let offsetX = 0, offsetY = 0; // current distance from home
+  let lastX = 0, lastY = 0;     // pointer position at the last event
+  let dragging = false;
+
+  card.addEventListener("pointerdown", (e) => {
     e.preventDefault();
-    currX = e.clientX;
-    currY = e.clientY;
+    card.setPointerCapture(e.pointerId); // keep receiving events even if the pointer leaves the card
+    card.classList.remove("snapping");   // no easing while dragging
+    dragging = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+  });
 
-    // Stop drag on mouse up.
-    document.onmouseup = () => {
-      document.onmouseup = null;
-      document.onmousemove = null;
-      return;
-    };
+  card.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    offsetX += e.clientX - lastX;
+    offsetY += e.clientY - lastY;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    card.style.translate = `${offsetX}px ${offsetY}px`;
+  });
 
-    // While mouse down and moving, calculate new coordinates.
-    document.onmousemove = (e) => {
-      e = e || window.event;
-      e.preventDefault();
+  function release() {
+    if (!dragging) return;
+    dragging = false;
+    if (Math.hypot(offsetX, offsetY) <= SNAP_RADIUS_PX) {
+      offsetX = 0;
+      offsetY = 0;
+      card.classList.add("snapping");
+      card.style.translate = "0px 0px";
+    }
+  }
 
-      newX = currX - e.clientX;
-      newY = currY - e.clientY;
-      currX = e.clientX;
-      currY = e.clientY;
-
-      cardElement.style.top = (cardElement.offsetTop - newY) + "px";
-      cardElement.style.left = (cardElement.offsetLeft - newX) + "px";
-    };
-  };
+  card.addEventListener("pointerup", release);
+  card.addEventListener("pointercancel", release);
 }
 
 dragCard();
