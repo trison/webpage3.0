@@ -12,6 +12,8 @@ body {
 
 #card-under {
   background-color: lightgray;
+  background-position: center;
+  background-size: cover;
   border-radius: 2px;
   left: 50%;
   min-height: 219.5px;
